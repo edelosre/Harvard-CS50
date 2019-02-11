@@ -23,20 +23,19 @@ void valid_credit_card_checker (long creditcard_number)
         printf("INVALID\n");
     }
     //Amex cards are 15 digits, and only start with 34 or 37
-    else if (num_digits == 15 && ((creditcard_number / pow(10,13) >= 34 && creditcard_number / pow(10,13) < 35)
-                             || (creditcard_number / pow(10,13) >= 37 && creditcard_number / pow(10,13) < 38))) {
+    else if (num_digits == 15 && ((creditcard_number / pow(10,13) >= 34 && creditcard_number / pow(10,13) < 35) ||
+			(creditcard_number / pow(10,13) >= 37 && creditcard_number / pow(10,13) < 38))) {
         printf("AMEX\n");
     }
     //MasterCard are 16 digits and start with 51,52,53,54, or 55
-    else if (num_digits == 16 && (creditcard_number/ pow(10,14)>= 51
-                                  && creditcard_number / pow(10,14) < 56))
+    else if (num_digits == 16 && 
+			(creditcard_number/ pow(10,14)>= 51 && creditcard_number / pow(10,14) < 56))
     {
         printf("MASTERCARD\n");
     }
     //Visa are 13 or 16 digits and only start with 4
-    else if ((num_digits == 13 && creditcard_number/ pow(10,12) >= 4 && creditcard_number / pow(10,12) < 5) || (num_digits == 16 
-                                                                                                               && creditcard_number/ pow(10,15) >= 4
-                                                                                                               && creditcard_number/ pow(10,15) < 5))
+    else if ((num_digits == 13 && creditcard_number/ pow(10,12) >= 4 && creditcard_number / pow(10,12) < 5) ||
+				(num_digits == 16 && creditcard_number/ pow(10,15) >= 4 && creditcard_number/ pow(10,15) < 5))
     {
         printf("VISA\n");
     }
