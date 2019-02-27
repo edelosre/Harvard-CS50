@@ -1,0 +1,23 @@
+body, html {
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 125px;
+
+
+}
+h1 {
+  font-size: 40px;
+  color: #ffffff;
+}
+p {
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.navbar-nav > li > .dropdown-menu { background-color: darkgrey; }
