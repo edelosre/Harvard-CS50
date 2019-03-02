@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+    <br></br>
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form class="needs-validation" action="/form" method="post" novalidate>
+
+        <div>
+            <select name="gender" class="custom-select" required>
+              <option value="" selected disabled hidden>Select gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="invalid-feedback">Please select a gender.</div>
+        </div>
+        <br></br>
+        <br></br>
+        <div>
+            <div>
+            <label>Height</label>
+            <input type="text" name="height" class="form-control" id="height" placeholder="Height (in inches)" required>
+            <div class="invalid-feedback">
+                Please input your height.
+            </div>
+        </div>
+        </div>
+        <br></br>
+        <div>
+            <div>
+            <label>Height</label>
+            <input type="text" name="weight" class="form-control" id="weight" placeholder="Weight (in lbs)" required>
+            <div class="invalid-feedback">
+                Please input your weight.
+            </div>
+        </div>
+        <br></br>
+        Do you know your height and weight using the metric system?
+      <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" value="yes" id="metricyes" name="metric" required>
+        <label class="custom-control-label" for="metricyes">Yes</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" value="no" id="metricno" name="metric" required>
+        <label class="custom-control-label" for="metricno">No</label>
+        <div class="invalid-feedback">Please select an option.</div>
+      </div>
+        <br></br>
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+
+{% endblock %}

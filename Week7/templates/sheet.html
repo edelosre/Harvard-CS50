@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1 class="mb-3">Survey Results</h1>
+<br></br>
+
+<table style="width:100%">
+  <tr>
+    <th>{{surveydata[0][0]}}</th>
+    <th>{{surveydata[0][1]}}</th>
+    <th>{{surveydata[0][2]}}</th>
+    <th>{{surveydata[0][3]}}</th>
+  </tr>
+
+    {%for i in range(1, surveydata| length)%}
+        <tr>
+            <td>{{surveydata[i][0]}}</td>
+            <td>{{surveydata[i][1]}}</td>
+            <td>{{surveydata[i][2]}}</td>
+            <td>{{surveydata[i][3]}}</td>
+        </tr>
+
+    {%endfor%}
+
+</table>
+{% endblock %}
