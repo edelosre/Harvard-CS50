@@ -15,3 +15,5 @@ Finished Week 5: 2/26
 Finished Week 6: 2/26
 
 Finished Week 7: 3/1
+
+Finished week 8: 3/3
