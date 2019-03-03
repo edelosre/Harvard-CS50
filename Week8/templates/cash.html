@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+
+<h1 class="mb-3">Deposit Cash</h1>
+<br></br>
+
+    {% if deposited == 1 %}
+        <div>Cash deposited! Click <a href="buy">here</a> to make more trades.
+        </div>
+    {% else %}
+        <div>Your current cash is: <b>{{currentcash}}</b></div>
+        <br></br>
+        <form action="/cash" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="cash" placeholder="Amount" type="number">
+            </div>
+            <button class="btn btn-primary" type="submit">Deposit</button>
+        </form>
+    {%endif%}
+{% endblock %}

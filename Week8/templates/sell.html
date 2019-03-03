@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+<h1 class="mb-3">Sell</h1>
+<br></br>
+
+    {% if successful == 1 %}
+        <div>Trade successful! Click <a href="sell">here</a> to execute another sell order.
+        </div>
+    {% else %}
+        <form action="/sell" method="post">
+            <div class="form-group">
+                <select name="symbol">
+                    {%for i in range(available_stocks| length)%}
+                    <option value="{{available_stocks[i]}}">{{available_stocks[i]}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Quantity of shares" type="number">
+            </div>
+            <button class="btn btn-primary" type="submit">Sell</button>
+        </form>
+     {%endif%}
+{% endblock %}

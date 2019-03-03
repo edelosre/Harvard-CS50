@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+    {% if registered == 1 %}
+        <div>Account created! Click
+            <a href="login"> here</a> to login.
+        </div>
+    {% else %}
+        <form action="/register" method="post">
+            <div class="alert alert-danger" role="alert" id ="usernamealert">
+                That username is unavailable!
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" id="username" name="username" placeholder="Create Username" type="text">
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="password" placeholder="Create Password" type="password">
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="confirmation" placeholder="Confirm Password" type="password">
+            </div>
+            <button class="btn btn-primary" type="submit">Confirm Registration</button>
+        </form>
+        <script>
+
+        var typingTimer;
+        var doneTypingInterval = 1000;
+        var username = document.getElementById("username");
+        var valid_username = true;
+
+        if (valid_username == true){
+            $("#usernamealert").hide()
+        }
+
+        $('#username').keyup(function(){
+            clearTimeout(typingTimer);
+            if ($('#username').val()) {
+                typingTimer = setTimeout(checkName, doneTypingInterval);
+            }
+        });
+
+        function checkName () {
+            //do something
+            $.get( "/check?username=" + username.value, function(data) {
+              $(".result").html(data);
+              valid_username = data;
+              if (valid_username == false){
+                  $("#usernamealert").show()
+                  document.getElementById("username").style.border = "1px solid #dc3545";
+              }
+              else{
+                  $("#usernamealert").hide()
+                  document.getElementById("username").style.border = "";
+              }
+            });
+        }
+
+        </script>
+    {% endif %}
+{% endblock %}
